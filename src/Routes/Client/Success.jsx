@@ -31,11 +31,9 @@ export const Success = () => {
             quantity: res.quantity,
           });
         }
-
-        await CrearPedido(orderItems, "Pendiente");
-
         
-
+        await CrearPedido(orderItems, "Pendiente");
+        
         // Redirigir luego de 5 segundos (opcional)
         setTimeout(() => {
           navigate("/Products");
@@ -43,6 +41,7 @@ export const Success = () => {
       } catch (error) {
         console.error("Error al procesar la orden:", error);
       }
+
     };
 
     if (localStorage.getItem("pagado")) {
@@ -59,4 +58,7 @@ export const Success = () => {
       <p className="mt-4 text-sm text-gray-400">Serás redirigido automáticamente...</p>
     </div>
   );
+  //
+
+  //
 };

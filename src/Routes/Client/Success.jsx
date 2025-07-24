@@ -19,7 +19,11 @@ export const Success = () => {
 
       try {
         const orderItems = [];
-
+        // Limpiar carrito y localStorage
+        clearCart();
+        localStorage.removeItem("carrito"); 
+        localStorage.removeItem("items_pagados");
+        localStorage.removeItem("pagado");
         for (const item of items) {
           const res = await CrearOrdenesItem(item.product_id, item.quantity);
           orderItems.push({
@@ -30,10 +34,7 @@ export const Success = () => {
 
         await CrearPedido(orderItems, "Pendiente");
 
-        // Limpiar carrito y localStorage
-        clearCart();
-        localStorage.removeItem("items_pagados");
-        localStorage.removeItem("pagado");
+        
 
         // Redirigir luego de 5 segundos (opcional)
         setTimeout(() => {

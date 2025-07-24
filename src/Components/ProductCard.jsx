@@ -16,7 +16,7 @@ export const ProductCard = ({ producto }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
       <img
-        src={producto.image_url || "/default-image.png"}
+        src={producto.img_url || "/default-image.png"}
         alt={producto.name}
         className="w-full h-48 object-cover"
       />
